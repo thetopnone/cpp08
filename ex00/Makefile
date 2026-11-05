@@ -3,7 +3,7 @@ CXX_FLAGS = -g -Wall -Wextra -Werror -std=c++98
 SRCS = main.cpp
 OBJS_DIR = objs
 OBJS = $(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
-NAME = ex00
+NAME = easyfind
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: akonstan <akonstan@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/04 18:27:53 by akonstan          #+#    #+#             */
-/*   Updated: 2026/11/05 00:02:20 by akonstan         ###   ########.fr       */
+/*   Updated: 2026/11/05 16:36:58 by akonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,13 @@
 # include <exception>
 
 template<typename T>
-int	easyfind(const T& cont, int num){
-	try{
-		int idx = std::find(cont.begin(), cont.end(), num);
-		if (idx == cont.end())
-			throw std::exception();
+typename T::const_iterator	easyfind(const T& cont, int num){
+	typename T::const_iterator iter = std::find(cont.begin(), cont.end(), num);
+	if (iter == cont.end()){
+		std::cerr << "Element " << num << " not detected\n";
+		throw std::exception();
 	}
-	catch(...){
-		
-	}
-	return idx;
+	std::cout << "Found the value: " << *iter << " in position: " << std::distance(cont.begin(), iter) << '\n';
+	return iter;
 }
 #endif

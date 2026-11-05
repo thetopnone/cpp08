@@ -14,7 +14,7 @@
 # define EASYFIND_HPP
 
 template<typename T>
-int	easyfind(const T& cont, int num);
+typename T::const_iterator	easyfind(const T& cont, int num);
 
 # include "easyfind.tpp"
 #endif
