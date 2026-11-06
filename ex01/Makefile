@@ -1,6 +1,6 @@
 CXX = c++
 CXX_FLAGS = -g -Wall -Wextra -Werror -std=c++98
-SRCS = main.cpp
+SRCS = main.cpp Span.cpp
 OBJS_DIR = objs
 OBJS = $(patsubst %.cpp, $(OBJS_DIR)/%.o, $(SRCS))
 NAME = span
@@ -8,7 +8,7 @@ NAME = span
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXX_FLAGS) $< -o $@
+	$(CXX) $(CXX_FLAGS) $^ -o $@
 
 $(OBJS_DIR)/%.o: %.cpp
 	@mkdir -p $(OBJS_DIR)

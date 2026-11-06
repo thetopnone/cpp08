@@ -6,21 +6,27 @@
 /*   By: akonstan <akonstan@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 16:45:20 by akonstan          #+#    #+#             */
-/*   Updated: 2026/11/05 17:15:26 by akonstan         ###   ########.fr       */
+/*   Updated: 2026/11/06 17:00:17 by akonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
 # include <list>
+# include <vector>
 # include <exception>
+# include <cmath>
+# include <numeric>
+# include <algorithm>
+# include <iterator>
+# include <ctime>
+# include <cstdlib>
 
 class Span{
 	private:
-		int min;
-		int max;
 		unsigned int size;
-		std::list<int, 0> arr;
+		unsigned int count;
+		std::list<int> arr;
 		Span();
 	public:
 		Span(unsigned int N);
@@ -29,18 +35,25 @@ class Span{
 		~Span();
 
 		void	addNumber(int n);
-		const long	shortestSpan();
-		const long	longestSpan();
+		long	shortestSpan();
+		long	longestSpan();
 		void	fillSpan();
 
-		int& operator[](int idx);
-		const int& operator[](int idx) const;
+		//int& operator[](int idx);
+		//const int& operator[](int idx) const;
 
-		class NotEnoughElementsExceptions: public std::exception{
+		class NotEnoughElementsException: public std::exception{
 			public:
 				const char* what() const throw(){
-					return "Not enough elements in Span for this operation!";
+					return "Not enough elements in Span for this operation!(Span::NotEnoughElementsException)\n";
 				}
-		}
+		};
+
+		class MaximumElementsReachedException: public std::exception{
+			public:
+				const char* what() const throw(){
+					return "Maximum elements reached. Cannot fit new element(Span::MaximumElementsReachedException)\n";
+				}
+		};
 };
 #endif

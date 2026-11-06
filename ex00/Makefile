@@ -8,7 +8,7 @@ NAME = easyfind
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXX_FLAGS) $< -o $@
+	$(CXX) $(CXX_FLAGS) $^ -o $@
 
 $(OBJS_DIR)/%.o: %.cpp
 	@mkdir -p $(OBJS_DIR)
