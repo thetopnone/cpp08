@@ -6,7 +6,7 @@
 /*   By: akonstan <akonstan@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 16:45:20 by akonstan          #+#    #+#             */
-/*   Updated: 2026/11/06 17:00:17 by akonstan         ###   ########.fr       */
+/*   Updated: 2026/11/09 16:24:53 by akonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ class Span{
 
 		//int& operator[](int idx);
 		//const int& operator[](int idx) const;
+		unsigned int getSize();
 
 		class NotEnoughElementsException: public std::exception{
 			public:

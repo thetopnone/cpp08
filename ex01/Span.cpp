@@ -6,7 +6,7 @@
 /*   By: akonstan <akonstan@student.42warsaw.pl>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/05 16:45:24 by akonstan          #+#    #+#             */
-/*   Updated: 2026/11/06 17:11:17 by akonstan         ###   ########.fr       */
+/*   Updated: 2026/11/09 16:25:17 by akonstan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,8 @@ static int generator(){
 void	Span::fillSpan(){
 	std::generate_n(std::back_inserter(arr), size - count, generator);
 	count = static_cast<unsigned int>(arr.size());
+}
+
+unsigned int	Span::getSize(){
+	return size;
 }
